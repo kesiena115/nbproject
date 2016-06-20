@@ -171,3 +171,8 @@ div.nb_controls_inactive
 .nb_sidebar .nb--guest .nb-nav__icon-bar--open:nth-child(2) {
   max-width: 0;
 }
+
+
+div.ui-view-popup {
+  z-index: 1000; /*To ensure it appears on top of the sidebar */
+}

@@ -82,12 +82,6 @@ define(function(require) {
             });
           },
 
-          successful_login: function (evt) {
-            Auth.set_cookie('ckey', evt.value.ckey);
-            document.location = 'http://' + document.location.host + document.location.pathname;
-            $.I('Welcome !');
-          },
-
           close_view: function (evt) {
             if (evt.value === this.l.element[0].id) {
               delete($.concierge.features.doc_viewer[id]);

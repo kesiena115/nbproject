@@ -120,13 +120,6 @@ define(function(require) {
 
             $.L('closeview: ', evt, this.l.element[0].id);
           },
-
-          successful_login: function (evt) {
-            Auth.set_cookie('ckey', evt.value.ckey);
-            document.location = 'http://' + document.location.host + document.location.pathname;
-            $.I('Welcome !');
-          },
-
         },
         views: {
           v1:{ data: docview },

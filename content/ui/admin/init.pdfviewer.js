@@ -45,14 +45,6 @@ define(function(require) {
       $.concierge.addConstants(p.value);
     });
 
-    $.concierge.addListeners(Pers, {
-      successful_login: function (evt) {
-        Auth.set_cookie('ckey', evt.value.ckey);
-        document.location = document.location.protocol + '//' + document.location.host + document.location.pathname;
-        $.I('Welcome !');
-      },
-    }, 'globalPersObject');
-
     //Factories: methods called if an event calls for a function that's not yet present
     $.concierge.addFactory('file', 'doc_viewer', function (id) {
       var pers_id = 'pers_' + id;

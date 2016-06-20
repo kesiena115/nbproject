@@ -131,15 +131,15 @@ define(function(require) {
 
       /* End of Navbar event handlers */
 
-      /*
-       Todo: k>>> The following 7 lines of code execute after a successful login. It was copied from init.pdfviewer.js.
-       I don't fully understand it.
-       */
-      $.concierge.addListeners(Pers, { // Pers used arbitrarily because the copied code had it.
+      $.concierge.addListeners(Pers, {
         successful_login: function (evt) {
+          if($(".nb_sidebar").length) {
+            return; // The embed script (buildEmbed.js) has its own login handler
+          }
           Auth.set_cookie('ckey', evt.value.ckey);
           Auth.set_cookie('userinfo', evt.value.userinfo);
-          document.location = document.location.protocol + '//' + document.location.host + document.location.pathname;
+          Conf.userinfo = JSON.parse(unescape(evt.value.userinfo));
+          document.location = document.location.protocol + '//' + document.location.host + document.location.pathname + document.location.search;
           $.I('Welcome !');
         },
       }, 'globalPersObject');
