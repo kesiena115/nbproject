@@ -266,15 +266,15 @@ define(function(require) {
 			var section_tag_option2 = "<br /><br /><label for='section_tag'>Tag Full Section:</label><br /><select id='section_tag' name='section_tag'><option value='0'>----Select Section to Tag----</option></select>";
 			var section_tag_option = ''; //hack to hide tags
 
-			var curiousIcon = $('<img src="' + Pers.server_url + '/content/views/emoticons/curious.png" title="curious" class="emoticon"/>');
-			var confusedIcon = $('<img src="' + Pers.server_url + '/content/views/emoticons/confused.png" title="confused" class="emoticon"/>');
-			var usefulIcon = $('<img src="' + Pers.server_url + '/content/views/emoticons/useful.png" title="useful" class="emoticon"/>');
-			var interestedIcon = $('<img src="' + Pers.server_url + '/content/views/emoticons/interested.png" title="interested" class="emoticon"/>');
-			var frustratedIcon = $('<img src="' + Pers.server_url + '/content/views/emoticons/frustrated.png" title="frustrated" class="emoticon"/>');
-			var helpIcon = $('<img src="' + Pers.server_url + '/content/views/emoticons/help.png" title="help" class="emoticon"/>');
-			var questionIcon = $('<img src="' + Pers.server_url + '/content/views/emoticons/question.png" title="question" class="emoticon"/>');
-			var ideaIcon = $('<img src="' + Pers.server_url + '/content/views/emoticons/idea.png" title="idea" class="emoticon"/>');
-
+			var curiousIcon = $('<img title="curious" class="emoticon"/>');
+			var confusedIcon = $('<img title="confused" class="emoticon"/>');
+			var usefulIcon = $('<img title="useful" class="emoticon"/>');
+			var interestedIcon = $('<img title="interested" class="emoticon"/>');
+			var frustratedIcon = $('<img title="frustrated" class="emoticon"/>');
+			var helpIcon = $('<img title="help" class="emoticon"/>');
+			var questionIcon = $('<img title="question" class="emoticon"/>');
+			var ideaIcon = $('<img title="idea" class="emoticon"/>');
+			
 			var iconList = [curiousIcon, confusedIcon, usefulIcon, interestedIcon, frustratedIcon, helpIcon, questionIcon, ideaIcon];
 
 			var addTag = function(type) {
