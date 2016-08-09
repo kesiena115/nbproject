@@ -17,12 +17,11 @@
 /*global NB$:true alert:true NB:true*/
 
 define(function(require) {
-  var concierge = require('concierge');
-  var Pers            = require('pers');
-  var Conf            = require('conf');
-  var duplicatewizard = require('duplicatewizard');
-  var filterwizard    = require('filterwizard');
-  var moment = require('moment');
+  var concierge       = require('concierge'),
+      Pers            = require('pers'),
+      Conf            = require('conf'),
+      duplicatewizard = require('duplicatewizard'),
+      filterwizard    = require('filterwizard');
 
   //require auth
   if ('NB$' in window) {
@@ -91,7 +90,7 @@ define(function(require) {
       width: 390,
       modal: true,
       position: { my: "top", at: "top+80", of: window },
-      open: function(event, ui) {
+      open: function(event, ui) { 
         // Ensures that clicking outside the modal closes it. Ref: http://stackoverflow.com/a/4325673/978369
         $('.ui-widget-overlay').bind('click', function() {
           $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
@@ -167,7 +166,7 @@ define(function(require) {
       width: 390,
       modal: true,
       position: { my: "top", at: "top+80", of: window },
-      open: function(event, ui) {
+      open: function(event, ui) { 
         // Ensures that clicking outside the modal closes it. Ref: http://stackoverflow.com/a/4325673/978369
         $('.ui-widget-overlay').bind('click', function() {
           $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
@@ -241,7 +240,7 @@ define(function(require) {
       width: 550,
       modal: true,
       position: { my: "top", at: "top+80", of: window },
-      open: function(event, ui) {
+      open: function(event, ui) { 
         // Ensures that clicking outside the modal closes it. Ref: http://stackoverflow.com/a/4325673/978369
         $('.ui-widget-overlay').bind('click', function() {
           $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
@@ -281,7 +280,7 @@ define(function(require) {
       width: 390,
       modal: true,
       position: { my: "top", at: "top+80", of: window },
-      open: function(event, ui) {
+      open: function(event, ui) { 
         // Ensures that clicking outside the modal closes it. Ref: http://stackoverflow.com/a/4325673/978369
         $('.ui-widget-overlay').bind('click', function() {
           $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
@@ -319,18 +318,16 @@ define(function(require) {
     checkboxes.filter('[value=' + assignment_ref + ']')[0].checked = 'true';
     f_checkbox();
     if (f.due != null) {
-      var dueDateObject = moment(f.due);
-      $('#due_date')[0].value = dueDateObject.format("MM/DD/YYYY");
-      $('#due_time')[0].value = dueDateObject.format("HH:mm");
+      $('#due_date')[0].value = f.due.substring(7, 5) + '/' + f.due.substring(10, 8) + '/' + f.due.substring(4, 0);
+      $('#due_time')[0].value = f.due.substring(13, 11) + ':' + f.due.substring(16, 14);
     }
 
     $('#edit_assignment_dialog').dialog({
       title: 'Assignment Properties for ' + $.E(f.title),
       width: 500,
-      height: 400,
       modal: true,
       position: { my: "top", at: "top+80", of: window },
-      open: function(event, ui) {
+      open: function(event, ui) { 
         // Ensures that clicking outside the modal closes it. Ref: http://stackoverflow.com/a/4325673/978369
         $('.ui-widget-overlay').bind('click', function() {
           $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
@@ -346,14 +343,9 @@ define(function(require) {
           var v_time = $('#due_time')[0].value;
 
           //TODO: validate form
-          var due_datetime = null;
-          if(v_date){
-            var dateTimeObject = moment(v_date + ' ' + v_time, 'MM/DD/YYYY HH:mm');
-            due_datetime = dateTimeObject.format(); // Returns ISO 8601 datetime format e.g. "2014-09-08T08:02:17-05:00"
-          }
+          var due_datetime = v_date === '' ? null : v_date.substring(10, 6) + '-' + v_date.substring(2, 0) + '-' + v_date.substring(5, 3) + ' ' + v_time.substring(2, 0) + ':' + v_time.substring(5, 3);
           $.concierge.get_component('edit_assignment')({ id: id, assignment:  $('input[name=is_assignment]:checked')[0].value === '1', due:due_datetime }, function (p) {
-            Files.model.add('file', p.files);
-            $.I('Changes Saved');
+            Files.model.add('file', p.files);$.I('Changes Saved');
           });
 
           $(this).dialog('destroy');
@@ -363,7 +355,6 @@ define(function(require) {
     $('#edit_assignment_dialog').dialog('open');
     $('#due_date').calendricalDate({ usa: true,  isoTime: true, two_digit_mdh: true });
     $('#due_time').calendricalTime({ usa: true,  isoTime: true, two_digit_mdh: true, meridiemUpperCase: true });
-
   };
 
   Files.rename_file = function (id, item_type) {
@@ -375,7 +366,7 @@ define(function(require) {
       width: 390,
       modal: true,
       position: { my: "top", at: "top+80", of: window },
-      open: function(event, ui) {
+      open: function(event, ui) { 
         // Ensures that clicking outside the modal closes it. Ref: http://stackoverflow.com/a/4325673/978369
         $('.ui-widget-overlay').bind('click', function() {
           $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
@@ -439,7 +430,7 @@ define(function(require) {
       height: 320,
       modal: true,
       position: { my: "top", at: "top+80", of: window },
-      open: function(event, ui) {
+      open: function(event, ui) { 
         // Ensures that clicking outside the modal closes it. Ref: http://stackoverflow.com/a/4325673/978369
         $('.ui-widget-overlay').bind('click', function() {
           $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
@@ -465,7 +456,7 @@ define(function(require) {
       width: 390,
       modal: true,
       position: { my: "top", at: "top+80", of: window },
-      open: function(event, ui) {
+      open: function(event, ui) { 
         // Ensures that clicking outside the modal closes it. Ref: http://stackoverflow.com/a/4325673/978369
         $('.ui-widget-overlay').bind('click', function() {
           $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
@@ -544,7 +535,7 @@ define(function(require) {
       width: 390,
       modal: true,
       position: { my: "top", at: "top+80", of: window },
-      open: function(event, ui) {
+      open: function(event, ui) { 
         // Ensures that clicking outside the modal closes it. Ref: http://stackoverflow.com/a/4325673/978369
         $('.ui-widget-overlay').bind('click', function() {
           $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
