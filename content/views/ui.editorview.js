@@ -23,7 +23,6 @@ define(function(require) {
 	var rangy = require('rangy-core');
 	var rangySelectionSaveRestore = require('rangy-selectionsaverestore');
 	var class_members = [];
-	var Pers = require('pers');
 
 	var $str        = 'NB$' in window ? 'NB$' : 'jQuery';
 	var FILETYPES = { TYPE_PDF: 1, TYPE_YOUTUBE: 2, TYPE_HTML5VIDEO: 3, TYPE_HTML5: 4 };
@@ -273,7 +272,7 @@ define(function(require) {
 			var helpIcon = $('<img title="help" class="emoticon"/>');
 			var questionIcon = $('<img title="question" class="emoticon"/>');
 			var ideaIcon = $('<img title="idea" class="emoticon"/>');
-			
+
 			var iconList = [curiousIcon, confusedIcon, usefulIcon, interestedIcon, frustratedIcon, helpIcon, questionIcon, ideaIcon];
 
 			var addTag = function(type) {
