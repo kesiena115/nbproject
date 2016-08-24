@@ -92,6 +92,8 @@ td.save-cancel
     cursor: pointer;
     vertical-align: top;
     box-sizing: content-box;
+    cursor: pointer;
+    vertical-align: top;
 }
 
 .emoticon[title="curious"] {
@@ -495,5 +497,3 @@ div.mce-tinymce.mce-tinymce-inline {
 * End of CSS for TinyMCE mention plugin
 *********************************************************
 */
-=======
->>>>>>> Fixed emoticon size and relative links on html annotation

@@ -21,7 +21,6 @@ define(function(require) {
 	var jquery_ui = require('jquery_ui');
 	var tinyMCE = require('tinyMCE');
 	var rangy = require('rangy-core');
-	var rangy = require('rangy-core');
 	var rangySelectionSaveRestore = require('rangy-selectionsaverestore');
 	var class_members = [];
 	var Pers = require('pers');
